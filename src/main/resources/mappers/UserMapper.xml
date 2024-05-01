@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.boardver3pr.user.UserMapper">
+
+    <insert id="postUser">
+    INSERT INTO user
+    SET uid = #{uid},
+        upw = #{upw},
+        nm  = #{nm}
+    </insert>
+
+    <select id="searchUid">
+        SELECT uid
+        FROM user
+        WHERE uid = #{uid}
+    </select>
+
+    <select id="getUserEntity">
+        SELECT uid, upw, nm
+        FROM user
+        WHERE uid = #{uid}
+    </select>
+
+    <update id="patchPassword">
+        UPDATE user
+        SET upw = #{newUpw}
+        WHERE uid = #{uid}
+    </update>
+</mapper>
